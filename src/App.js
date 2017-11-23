@@ -1,15 +1,34 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import SearchBar from './components/SearchBar'
+import SearchResults from './components/SearchResults'
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      searchText: '',
+      searchResults: []
+    }
+  }
+
+  onChange(e) {
+    this.setState({searchText: e.target.value});
+  }
+
+  getResults() {
+    //calltodb(searchText).then(e => {
+      //this.setState({searchResults: e.value})
+    //});
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-        </header>
+      <div>
+      <SearchBar />
+      <SearchResults />
       </div>
-    );
+    )
   }
 }
 
